@@ -3,14 +3,15 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav>
+    <nav className="navbar">
       <Link href="/">
         <Image
           className="logo"
           src="/assets/logo/logo-3.png"
           alt="logo"
-          width={191}
-          height={32}
+          sizes="100vw"
+          width={478}
+          height={80}
         />
       </Link>
 
