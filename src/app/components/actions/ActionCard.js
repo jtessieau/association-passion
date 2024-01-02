@@ -1,6 +1,6 @@
 import Image from "next/image"
 
-export default function Action({ action }) {
+export default function ActionCard({ action }) {
   return (
     <article>
       <div>
@@ -11,7 +11,7 @@ export default function Action({ action }) {
           </p>
         </div>
         <div>
-          <Image src={action.photo ?? "/assets/photos/perou-2015.jpg"} alt="Pérou" width={620} height={350} />
+          <Image src={action.photo ?? "/assets/photos/perou-2015.jpg"} alt={action.name + "picture"} width={620} height={350} />
         </div>
       </div>
     </article>
