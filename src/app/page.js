@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import MembersList from "./components/members/MembersList";
 
 import "./globals.scss"
+import Main from "./components/Main";
 
 export default function Home() {
   return (
@@ -12,8 +13,12 @@ export default function Home() {
       <Header></Header>
 
       <div className="content">
+        <Main></Main>
+        <hr />
         <ActionsList></ActionsList>
+        <hr />
         <MembersList></MembersList>
+        <hr />
         <Shop></Shop>
       </div>
 
