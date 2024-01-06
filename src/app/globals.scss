@@ -43,6 +43,7 @@ body {
     color: $titleColor;
   }
   h3 {
+    font-size: 1.8rem;
     font-weight: 700;
     color: $subtitleColor;
   }
@@ -128,6 +129,7 @@ body {
 .content {
   max-width: 1320px;
   margin:auto;
+  padding: 0 3rem;
 
   h1,h2 {
     text-align: center;
@@ -140,6 +142,36 @@ body {
   main, section {
     margin: 50px 0;
   }
+}
+
+.action {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  .action-description {
+    padding: 1rem 2rem;
+    width: 45%;
+
+    h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+  .action-image{
+    width: 45%;
+    height: auto;
+  
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.action:nth-child(even) {
+  flex-direction: row-reverse;
 }
 
 .members-list {
@@ -165,6 +197,32 @@ body {
   .member-card-title {
     font-family: $subtitle-font;
     font-size: 2rem;
+  }
+}
+
+#shop { 
+  .shop-link {
+    color:#285aeb;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  i {
+    margin: 0 1rem;
+  }
+
+  a > i {
+    opacity: 0;
+    transition: ease .5s;
+  }
+
+  a:hover > i {
+    opacity: 100%;
   }
 }
 

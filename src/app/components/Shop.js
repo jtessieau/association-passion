@@ -14,7 +14,8 @@ export default function Shop() {
         les remettrons en main propre si vous êtes près de notre
         bureau !
       </p>
-      <div>
+
+      <div className="shop-link">
         <Link href="https://www.vinted.fr/member/43451531-associationpassion" target="_blank">
           <i className="fas fa-angle-double-right d-none d-md-inline"></i>
           Visitez notre boutique Vinted
