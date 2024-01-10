@@ -1,0 +1,33 @@
+@import "../style/config/config";
+
+.landing {
+  min-height: 100vh;
+  width: 100%;
+  @include flexCenter(column);
+  background: {
+    image: url(/assets/photos/pexels-rebecca-zaal-764681.jpg);
+    size: cover;
+    position: center;
+    attachment: fixed;
+  }
+
+  .landing-content {
+    margin: auto;
+    width: 100%;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: white;
+
+    .landing-title {
+      font-family: $title-font;
+      font-size: 4rem;
+    }
+
+    .landing-acronym {
+      margin-top: .5rem;
+      font-style: italic;
+      font-size: 1.3rem;
+    }
+  }
+}

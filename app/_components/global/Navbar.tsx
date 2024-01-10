@@ -1,3 +1,4 @@
+import "@/app/_components/global/Navbar.scss"
 import Image from "next/image";
 import Link from "next/link";
 

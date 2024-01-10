@@ -6,8 +6,10 @@ export default function Home() {
     return (
         <>
             <Header landing={true}/>
-
-            <HomepageContent/>
+            
+            <div className={"content"}>
+                <HomepageContent/>
+            </div>
 
             <Footer/>
         </>

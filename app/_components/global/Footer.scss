@@ -1,0 +1,41 @@
+@import "../../style/config/config";
+
+footer {
+  background-color: $darkBackgroundColor;
+  padding: 40px;
+
+  text-align: center;
+
+  h2 {
+    color: white;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem
+  }
+
+  .facebook-link:hover {
+    color: #4267b2;
+    //background: white;
+    //border-radius: 50%;
+    //background-clip: border-box;
+  }
+
+  .instagram-link:hover {
+    color: #fd5949;
+    //background: radial-gradient(
+    //  circle at 30% 107%,
+    //  #fdf497 0%,
+    //  #fdf497 5%,
+    //  #fd5949 45%,
+    //  #d6249f 60%,
+    //  #285aeb 90%
+    //);
+  }
+
+  .mail-link:hover {
+    color: rgb(204, 49, 38);
+  }
+}

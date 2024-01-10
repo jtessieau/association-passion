@@ -1,0 +1,21 @@
+/* --- Fonts --- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kavivanar&display=swap");
+
+$title-font: "Kavivanar";
+$subtitle-font: "Kavivanar";
+$core-font: "Montserrat";
+
+/* --- Colors --- */
+$titleColor: #5d4a66;
+$subtitleColor: #6a5d7b;
+$backgroundColor: #e6e6fa;
+$darkBackgroundColor: #8d89a6;
+
+/* --- Mixins --- */
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}

@@ -1,3 +1,5 @@
+import "@/app/homepage/Landing.scss"
+
 export default function Landing() {
     return (
         <div className="landing">
@@ -5,10 +7,10 @@ export default function Landing() {
                 <div className="landing-title">
                     Association PASSION
                 </div>
-                <p>
+                <div className="landing-acronym">
                     Projet Associatif de Soutien et de Solidarité Internationale des
                     futures Orthophonistes de Nice
-                </p>
+                </div>
             </div>
         </div>
     )

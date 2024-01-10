@@ -1,0 +1,57 @@
+@import "config/reset";
+@import "config/config";
+
+
+/* --- Globals --- */
+* {
+  font-family: $core-font, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  h1 {
+    font-size: 3.5rem;
+    color: $titleColor;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    color: $titleColor;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    color: $subtitleColor;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-align: center;
+    font-family: $subtitle-font;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  hr {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+.content {
+  max-width: 1320px;
+  margin: auto;
+  padding: 0 3rem;
+
+  main, section, {
+    margin: 3rem 0;
+  }
+
+  p {
+    line-height: 1.5rem;
+    margin-bottom: .7rem;
+  }
+}
