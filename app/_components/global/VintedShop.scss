@@ -1,0 +1,25 @@
+@import "../../style/config/config";
+
+#vinted-shop {
+  .btn-shop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    height: 4rem;
+    margin: 2rem auto auto;
+    padding: 0 1rem;
+    border-radius: 2rem;
+
+    font-size: 2rem;
+    text-decoration: none;
+    color: $subtitleColor;
+  }
+
+  .btn-shop:hover {
+    color: white;
+    background-color: $darkBackgroundColor;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
+  }
+}

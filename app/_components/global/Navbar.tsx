@@ -26,7 +26,7 @@ export default function Navbar() {
                 <Link className="nav-item nav-link" href="/#members">
                     Les membres
                 </Link>
-                <Link className="nav-item nav-link" href="/#shop">
+                <Link className="nav-item nav-link" href="/#vinted-shop">
                     Boutique
                 </Link>
             </div>
