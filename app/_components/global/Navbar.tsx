@@ -8,7 +8,7 @@ export default function Navbar() {
             <Link href="/public">
                 <Image
                     className="logo"
-                    src="/assets/logo/logo-navbar.png"
+                    src="/assets/logos/logo-navbar.png"
                     alt="logo"
                     sizes="100vw"
                     width={478}
