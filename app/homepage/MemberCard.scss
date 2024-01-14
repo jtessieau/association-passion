@@ -1,0 +1,31 @@
+@import "../style/config/config";
+
+.member-card {
+  text-align: center;
+  width: 150px;
+  margin: 20px 20px;
+
+  .member-picture {
+    margin-bottom: 1rem;
+
+    img {
+      margin: auto;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 5px solid $subtitleColor;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .member-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: .2rem;
+  }
+
+  .member-role {
+    font-style: italic;
+    font-size: .9rem;
+  }
+}

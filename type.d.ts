@@ -3,5 +3,5 @@ type Member = {
     name: string,
     role: string,
     picture: string,
-    active: boolean
+    isActive: boolean
 }
