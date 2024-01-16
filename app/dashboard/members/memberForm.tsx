@@ -1,36 +1,61 @@
 "use client"
 
-import {FormEvent} from "react";
+import {FormEvent, useState} from "react";
+import MemberFormValidator from "@/app/utils/validators/MemberFormValidator";
 
 const API_ENDPOINT = process.env.BASE_URL + "/api/members"
 export default function MemberForm() {
+    const [errors, setErrors] = useState<MembersFormErrorsType | undefined>()
+
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
 
         const formData = new FormData(event.currentTarget)
-        const response = await fetch(API_ENDPOINT, {
-            method: "POST",
-            body: formData
-        })
 
-        console.log(await response.json())
+        if (!formData.get("memberIsActive")) {
+            formData.append("memberIsActive", "false")
+        } else {
+            formData.set("memberIsActive", "true")
+        }
+
+        // -- Validation -- //
+
+        const validation = MemberFormValidator(formData);
+
+        if (!validation.isValid) {
+            setErrors(validation.errors)
+        } else {
+            setErrors(undefined)
+            const response = await fetch(API_ENDPOINT, {
+                method: "POST",
+                body: formData
+            })
+
+            console.log(await response.json())
+        }
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <label htmlFor={"member-name"}>Nom</label>
-            <input type={"text"} id={"member-name"} name={"member-name"}/>
+        <>
+            <form onSubmit={onSubmit}>
+                <div>
+                    <label htmlFor={"memberName"}>Nom</label>
+                    <input type={"text"} id={"memberName"} name={"memberName"}/>
+                    {errors?.memberName && <span>{errors.memberName}</span>}
+                </div>
+                <div>
+                    <label htmlFor={"memberRole"}>Role</label>
+                    <input type={"text"} id={"memberRole"} name={"memberRole"}/>
+                    {errors?.memberRole && <span>{errors.memberRole}</span>}
+                </div>
+                <div>
+                    <label htmlFor={"memberIsActive"}>En activité;</label>
+                    <input type={"checkbox"} id={"memberIsActive"} name={"memberIsActive"}/>
+                    {errors?.memberIsActive && <span>{errors.memberIsActive}</span>}
+                </div>
 
-            <label htmlFor={"member-role"}>Role</label>
-            <input type={"text"} id={"member-role"} name={"member-role"}/>
-
-            <label htmlFor={"member-isActive"}>En activité;</label>
-            <input type={"checkbox"} id={"member-isActive"} name={"member-isActive"}/>
-
-            {/*<label htmlFor={"member-picture"}>Photo de profil</label>*/}
-            {/*<input type={"file"} id={"member-picture"} name={"member-picture"}/>*/}
-
-            <button type={"submit"}>Valider</button>
-        </form>
+                <button type={"submit"}>Valider</button>
+            </form>
+        </>
     )
 }
