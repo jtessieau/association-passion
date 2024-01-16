@@ -1,5 +1,4 @@
 import {PrismaClient} from "@prisma/client"
-import exp from "node:constants";
 
 const prisma = new PrismaClient()
 
