@@ -1,20 +1,8 @@
 import MemberCard from "@/app/homepage/MemberCard";
-import "./Members.scss"
+import "@/app/homepage/Members.scss"
 
-async function fetchMembers() {
-    const response = await fetch(process.env.URL + "/api/members", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
+import {fetchMembers} from "@/app/utils/database/members";
 
-    if (response.status === 200) {
-        return response.json()
-    }
-
-    return null
-}
 
 export default async function Members() {
 
