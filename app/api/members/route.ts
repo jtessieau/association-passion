@@ -91,3 +91,26 @@ export async function POST(request: Request) {
         await prisma.$disconnect()
     }
 }
+
+export async function DELETE(request: Request) {
+    const member = await request.json()
+    console.log(member)
+    try {
+        await prisma.members.delete({
+            where: {
+                id: parseInt(member.id)
+            }
+        })
+
+        return new Response(null, {
+            status: 204
+        })
+    } catch (error) {
+        return Response.json({
+            error: "An error occurred",
+            detail: error
+        })
+    } finally {
+        await prisma.$disconnect()
+    }
+}
