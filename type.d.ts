@@ -1,8 +1,15 @@
-type Member = {
-    id?: number,
+type MemberFromDatabase = {
+    id: number,
     name: string,
     role: string,
-    picture?: string,
+    picture: string,
+    isActive: boolean
+}
+
+type Member = {
+    name: string,
+    role: string,
+    picture: string,
     isActive: boolean
 }
 
