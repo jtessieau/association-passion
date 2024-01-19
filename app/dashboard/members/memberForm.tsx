@@ -1,10 +1,11 @@
 "use client"
 
 import {FormEvent, useState} from "react";
-import MemberFormValidator from "@/app/utils/validators/MemberFormValidator";
+import {useRouter} from "next/navigation";
 
 const API_ENDPOINT = process.env.BASE_URL + "/api/members"
 export default function MemberForm() {
+    const router = useRouter()
     const [errors, setErrors] = useState<MembersFormErrorsType | undefined>()
 
     async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -18,20 +19,17 @@ export default function MemberForm() {
             formData.set("memberIsActive", "true")
         }
 
-        // -- Validation -- //
+        const response = await fetch(API_ENDPOINT, {
+            method: "POST",
+            body: formData
+        })
 
-        const validation = MemberFormValidator(formData);
+        const data = await response.json()
 
-        if (!validation.isValid) {
-            setErrors(validation.errors)
+        if (!response.ok) {
+            setErrors(data.details.errors)
         } else {
-            setErrors(undefined)
-            const response = await fetch(API_ENDPOINT, {
-                method: "POST",
-                body: formData
-            })
-
-            console.log(await response.json())
+            router.push("/dashboard")
         }
     }
 
@@ -49,8 +47,8 @@ export default function MemberForm() {
                     {errors?.memberRole && <span>{errors.memberRole}</span>}
                 </div>
                 <div>
-                    <label htmlFor={"memberIsActive"}>En activité;</label>
-                    <input type={"checkbox"} id={"memberIsActive"} name={"memberIsActive"}/>
+                    <label htmlFor={"memberIsActive"}>En activité:</label>
+                    <input type={"checkbox"} id={"memberIsActive"} name={"memberIsActive"} checked={true}/>
                     {errors?.memberIsActive && <span>{errors.memberIsActive}</span>}
                 </div>
 
