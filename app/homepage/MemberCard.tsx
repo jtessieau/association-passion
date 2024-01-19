@@ -1,7 +1,7 @@
 import Image from "next/image";
 import "./MemberCard.scss"
 
-export default function MemberCard({member}: { member: Member }) {
+export default function MemberCard({member}: { member: MemberFromDatabase }) {
     return (
         <div className={"member-card"}>
             <div className={"member-picture"}>

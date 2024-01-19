@@ -6,7 +6,7 @@ import {fetchMembers} from "@/app/utils/database/members";
 
 export default async function Members() {
 
-    const {data: members}: { data: Member[] } = await fetchMembers()
+    const {data: members}: { data: MemberFromDatabase[] } = await fetchMembers()
 
 
     return (
