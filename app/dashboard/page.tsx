@@ -1,7 +1,9 @@
-import MembersTable from "@/app/dashboard/members/membersTable";
+import Link from "next/link";
 
 export default async function Dashboard() {
     return (
-        <MembersTable/>
+        <ul>
+            <li><Link href={"/dashboard/members"}>Gérer les membres</Link></li>
+        </ul>
     )
 }

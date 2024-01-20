@@ -1,12 +1,12 @@
 import MemberCard from "@/app/homepage/MemberCard";
 import "@/app/homepage/Members.scss"
 
-import {fetchMembers} from "@/app/utils/database/members";
+import {fetchAllMembers} from "@/app/utils/database/membersApiCall";
 
 
 export default async function Members() {
 
-    const {data: members}: { data: MemberFromDatabase[] } = await fetchMembers()
+    const {data: members}: { data: MemberFromDatabase[] } = await fetchAllMembers()
 
 
     return (
