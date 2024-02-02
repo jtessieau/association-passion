@@ -21,7 +21,7 @@ export default function MemberFormContainer() {
                 const parsedResponse = await response.json()
                 setErrors(parsedResponse.details)
             } else {
-                router.push("/dashboard")
+                router.push("/dashboard/members")
             }
         }
 

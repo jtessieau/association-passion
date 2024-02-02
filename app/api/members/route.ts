@@ -1,5 +1,6 @@
 import {PrismaClient} from "@prisma/client"
 import MemberFormValidator from "@/app/utils/validators/MemberFormValidator";
+import {sanitizeString} from "@/app/utils/sanitizer/sanitizer";
 
 const prisma = new PrismaClient()
 
@@ -51,13 +52,10 @@ export async function POST(request: Request) {
 
 
     // -- Sanitize -- //
-    function sanitize(userProvidedString: string) {
-        return userProvidedString.trim().replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    }
 
     const formDataArray: Member = {
-        name: sanitize(formData.get("memberName")?.toString() + ""),
-        role: sanitize(formData.get("memberRole")?.toString() + ""),
+        name: sanitizeString(formData.get("memberName")?.toString() + ""),
+        role: sanitizeString(formData.get("memberRole")?.toString() + ""),
         isActive: (formData.get("memberIsActive")?.toString() + "") == "true",
         picture: ""
     }

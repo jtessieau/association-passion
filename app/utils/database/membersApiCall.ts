@@ -33,14 +33,18 @@ async function fetchMemberById(id: string | number) {
 }
 
 async function deleteMemberById(id: string | number) {
-    const response = await fetch(process.env.BASE_URL + "/api/members/" + id, {
-        method: "DELETE",
-        headers: {
-            "Content-Type": "application/json"
-        },
-    })
-
-    return response.status == 204;
+    try {
+        const response = await fetch(process.env.BASE_URL + "/api/members/" + id, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        })
+        return response.status === 204
+    } catch (e) {
+        console.log(e)
+        return false
+    }
 }
 
 export {fetchAllMembers, fetchMemberById, deleteMemberById}
