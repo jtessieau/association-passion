@@ -29,11 +29,7 @@ export default function EditMember({params}: { params: { id: string } }) {
 
     useEffect(() => {
         fetchAndSetData()
-
-        return () => {
-        };
-
-    }, []);
+    }, [params.id]);
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 

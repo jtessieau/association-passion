@@ -1,7 +1,7 @@
 'use client'
 
 import './MembersListView.scss'
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import {deleteMemberById, fetchAllMembers} from "@/app/utils/database/membersApiCall";
 
 
@@ -29,7 +29,7 @@ export default function MembersListView() {
     useEffect(() => {
         async function handleDelete(id: number) {
             if (memberToDelete) {
-                const memberDeleted = await deleteMemberById(40)
+                const memberDeleted = await deleteMemberById(id)
 
                 if (memberDeleted) {
                     setMembers(prevMembers => prevMembers.filter(m => m.id !== memberToDelete.id));
@@ -41,7 +41,7 @@ export default function MembersListView() {
         }
 
         if (deleteConfirmation && memberToDelete) {
-            handleDelete(memberToDelete.id).then(res => console.log("deleted ..."))
+            handleDelete(memberToDelete.id)
         }
 
         console.log("2eme useffect")
